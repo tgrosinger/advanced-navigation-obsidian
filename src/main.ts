@@ -999,7 +999,7 @@ export default class LeaderHotkeys extends Plugin {
   private readonly loadSavedSettings = async (): Promise<void> => {
     writeConsole('Loading previously saved settings.');
 
-    const savedSettings = (await this.loadData()) || {};
+    const savedSettings = (await this.loadData()) || defaultSettings;
     try {
       savedSettings.hotkeys = (savedSettings.hotkeys || []).map(KeyMap.of);
       this.settings = savedSettings;
